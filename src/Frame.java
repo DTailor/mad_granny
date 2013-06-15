@@ -3,7 +3,7 @@ import java.awt.*;
 
 public class Frame extends JFrame{
 	public static String title = "Mad Grannies";
-	public static Dimension size = new Dimension(600,500);
+	public static Dimension size = new Dimension(800,600);
 	
 	
 	public Frame(){
@@ -18,6 +18,10 @@ public class Frame extends JFrame{
 	
 	
 	public void init(){
+		setLayout(new GridLayout(1, 1, 0, 0));
+		Screen screen = new Screen();
+		add(screen);
+		
 		setVisible(true);
 	}
 	
