@@ -5,7 +5,7 @@ import javax.swing.*;
 public class Screen extends JPanel implements Runnable{
 	public Thread thread = new Thread(this);
 	public static boolean isFirst = true;
-	public static int myWith, myHeight;
+	public static int myWidth, myHeight;
 	
 	public static Room room;
 	
@@ -19,7 +19,8 @@ public class Screen extends JPanel implements Runnable{
 	
 	public void paintComponent(Graphics g){
 		if(isFirst){
-			
+			myWidth = getWidth();
+			myHeight = getHeight();
 			define();
 			isFirst = false;
 		}
