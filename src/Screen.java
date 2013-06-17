@@ -58,7 +58,7 @@ public class Screen extends JPanel implements Runnable{
 
 		for(int i=0; i<mobs.length;i++){
 			mobs[i] = new Mob();
-			mobs[i].spawnMob(0);
+//			mobs[i].spawnMob(0);
 		}
 		
 	}
@@ -91,10 +91,28 @@ public class Screen extends JPanel implements Runnable{
 	
 	public static int fpsFrame = 0, fps = 1000000;
 	
+	public int spawnTimeout = 2000, spawnFrame=0;
+	public void mobSpawner(){
+		if(spawnFrame>=spawnTimeout){
+			for(int i=0;i< mobs.length;i++){
+				if(!mobs[i].inGame){
+					mobs[i].spawnMob(0);
+					break;
+				}
+			}
+			
+			spawnFrame=0;
+		}else{spawnFrame++;}
+	}
+	
 	public void run(){
 		while(true){
 			if(!isFirst){
 				room.physic();
+				mobSpawner();
+				for(int i=0; i< mobs.length;i++){
+					mobs[i].physic();
+				}
 			}
 			
 			
