@@ -22,7 +22,7 @@ public class KeyHandler implements MouseListener, MouseMotionListener{
 
 	
 	public void mousePressed(MouseEvent e) {
-		// TODO Auto-generated method stub
+		Screen.store.click(e.getButton());
 		
 	}
 

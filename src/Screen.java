@@ -16,6 +16,7 @@ public class Screen extends JPanel implements Runnable{
 	public static Image[]  tileset_air = new Image[20];
 	public static Image[] tileset_res = new Image[20];
 	public static Image[] tileset_granny = new Image[100];
+	public static Image[] tileset_shop = new Image[8];
 	
 	public static Room room;
 	public static Save save;
@@ -52,6 +53,8 @@ public class Screen extends JPanel implements Runnable{
 		tileset_res[0] = new ImageIcon("res/cell.png").getImage();
 		tileset_res[1] = new ImageIcon("res/weight_icon.png").getImage();
 		tileset_res[2] = new ImageIcon("res/tooth.png").getImage();
+		
+		tileset_shop[0] = new ImageIcon("res/tower_1.png").getImage();
 		
 		tileset_granny[0] = new ImageIcon("res/zombo_granny_26px.png").getImage();
 		save.loadWorld(new File("save/mission1.grn"));

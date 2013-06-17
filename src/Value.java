@@ -8,6 +8,7 @@ public class Value {
 	public static int mobAir = -1;
 	public static int mobGranny = 0;
 	
+	public static int delete = 99;
 	public static int mobEndPoint = 5;
 	
 	

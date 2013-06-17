@@ -32,7 +32,7 @@ public class Mob extends Rectangle{
 		inGame = false;
 	}
 	public void loseHealth(){
-		Screen.health --;
+		Screen.health ++;
 	}
 	
 	public int walkFrame=0, walkSpeed=10;
@@ -80,7 +80,7 @@ public class Mob extends Rectangle{
 				}
 				
 				try{
-					if(Screen.room.block[yC][xC].groundID==Value.mobEndPoint){
+					if(Screen.room.block[yC][xC-1].groundID==Value.mobEndPoint){
 						deleteMob();
 						loseHealth();
 					}
