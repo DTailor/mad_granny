@@ -28,8 +28,14 @@ public class Mob extends Rectangle{
 		inGame=true;
 	}
 	
+	public void deleteMob(){
+		inGame = false;
+	}
+	public void loseHealth(){
+		Screen.health --;
+	}
 	
-	public int walkFrame=0, walkSpeed=20;
+	public int walkFrame=0, walkSpeed=10;
 	public void physic() {
 		if(walkFrame>=walkSpeed){
 			if(direction==right){
@@ -61,7 +67,7 @@ public class Mob extends Rectangle{
 					} catch(Exception e){}
 				}
 				try{
-					if(Screen.room.block[yC][xC+1].groundID==Value.groundRoad){
+					if(Screen.room.block[yC][xC+1].groundID==Value.groundRoad  || Screen.room.block[yC][xC+1].groundID==Value.mobEndPoint){
 						direction = right;
 					}
 				} catch(Exception e){}
@@ -72,6 +78,14 @@ public class Mob extends Rectangle{
 						}
 					} catch(Exception e){}
 				}
+				
+				try{
+					if(Screen.room.block[yC][xC].groundID==Value.mobEndPoint){
+						deleteMob();
+						loseHealth();
+					}
+				}catch(Exception e){}
+				
 				
 				
 				isUp = false;

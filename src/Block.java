@@ -18,7 +18,7 @@ public class Block extends Rectangle
          
         if( airID != Value.airAir)
         {
-            g.drawImage(Screen.tileset_ground[airID], x, y, width, height, null);
+            g.drawImage(Screen.tileset_air[airID], x, y, width, height, null);
         }
     }
 }
