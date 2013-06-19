@@ -2,6 +2,9 @@ import java.awt.*;
 
 public class Mob extends Rectangle{
 	public int xC=0,yC=0;
+	
+	public int health ;
+	public int healthSpace=3, healthHeight=5;
 	public int mobSize = 52;
 	public int mobId=Value.mobAir;
 	public boolean inGame = false;
@@ -26,10 +29,13 @@ public class Mob extends Rectangle{
 		}
 		this.mobId = mobID;
 		inGame=true;
+		this.health = mobSize;
 	}
 	
 	public void deleteMob(){
 		inGame = false;
+		direction = right;
+		mobWalk = 0 ;
 	}
 	public void loseHealth(){
 		Screen.health ++;
@@ -101,7 +107,37 @@ public class Mob extends Rectangle{
 		
 	}
 	
+	public void loseHealth(int hp){
+		health -= hp;
+		
+		checkDeath();
+	}
+	
+	public void checkDeath(){
+		if(health ==0){
+			deleteMob();
+		}
+	}
+	
+	public boolean isDead(){
+		if(inGame){
+			return true;
+		} else {
+			return false;
+		}
+	}
+	
+	
 	public void draw(Graphics g){
 		g.drawImage(Screen.tileset_granny[mobId], x, y, width, height, null);
+		
+		g.setColor(new Color(180,50,50));
+		g.fillRect(x , y - (healthSpace+healthHeight), width, healthHeight);
+		
+		g.setColor(new Color(50, 180, 50));
+		g.fillRect(x , y - (healthSpace+healthHeight), health, healthHeight);
+		
+		g.setColor(new Color(0,0,0));
+		g.drawRect(x , y - (healthSpace+healthHeight), health-1, healthHeight-1);
 	}
 }

@@ -9,6 +9,7 @@ import java.io.*;
 public class Screen extends JPanel implements Runnable{
 	public Thread thread = new Thread(this);
 	public static boolean isFirst = true;
+	public static boolean isDebug = true;
 	public static int myWidth, myHeight;
 	public static int coins = 20, health = 10;
 	
