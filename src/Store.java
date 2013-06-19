@@ -1,12 +1,15 @@
 import java.awt.*;
 
+import sun.security.jgss.krb5.Krb5Util.ServiceCreds;
+
 
 public class Store {
 	public static int shopWidth = 8;
 	public static int buttonSize = 52;
 	public static int cellSpace = 2;
 	public static int iconSize = 20;
-	public static int[] buttonID = {0,1,2,3,4,5,6,7};
+	public static int[] buttonID = {Value.turkeyTower,1,2,3,4,5,6,7};
+	public static int[] buttonPrice = {5, 0, 0, 0, 0, 0, 0, 0, };
 	public static int heldID= -1;
 	public Rectangle[] button = new Rectangle[shopWidth];
 	
@@ -35,6 +38,21 @@ public class Store {
 					holdsItem = true;
 				}
 			}
+			if(holdsItem){
+				if(Screen.coins >= buttonPrice[heldID]){
+					for(int y=0; y<Screen.room.block.length;y++){
+						for(int x=0; x<Screen.room.block[0].length;x++){
+							if(Screen.room.block[y][x].contains(Screen.mouse)){
+								if(Screen.room.block[y][x].groundID != Value.groundRoad && Screen.room.block[y][x].airID == Value.airAir){
+									Screen.room.block[y][x].airID = heldID;
+									Screen.coins -= buttonPrice[heldID];
+								}
+							}
+						}
+					}
+				}
+				
+			}
 		}
 	}
 	
@@ -57,6 +75,11 @@ public class Store {
 			}
 			g.drawImage(Screen.tileset_res[0], button[i].x, button[i].y, button[i].width, button[i].height, null);
 			g.drawImage(Screen.tileset_shop[buttonID[i]], button[i].x, button[i].y, button[i].width, button[i].height, null);
+			if(buttonPrice[i]>0){
+				g.setColor(new Color(255,255,255));
+				g.setFont(new Font("Courier New", Font.BOLD, 14));
+				g.drawString(buttonPrice[i]+"",button[i].x+20, button[i].y+65);
+			}
 		}
 		
 		g.drawImage(Screen.tileset_res[1],buttonHealth.x, buttonHealth.y, buttonHealth.width, buttonHealth.height, null);

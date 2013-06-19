@@ -54,8 +54,8 @@ public class Screen extends JPanel implements Runnable{
 		tileset_res[1] = new ImageIcon("res/weight_icon.png").getImage();
 		tileset_res[2] = new ImageIcon("res/tooth.png").getImage();
 		
-		tileset_shop[0] = new ImageIcon("res/tower_1.png").getImage();
-		
+		tileset_shop[1] = new ImageIcon("res/tower_1.png").getImage();
+		tileset_air[1] = new ImageIcon("res/tower_1.png").getImage();
 		tileset_granny[0] = new ImageIcon("res/zombo_granny_26px.png").getImage();
 		save.loadWorld(new File("save/mission1.grn"));
 
@@ -110,7 +110,7 @@ public class Screen extends JPanel implements Runnable{
 	
 	public void run(){
 		while(true){
-			if(!isFirst){
+			if(!isFirst && health < 60){
 				room.physic();
 				mobSpawner();
 				for(int i=0; i< mobs.length;i++){

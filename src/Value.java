@@ -14,4 +14,6 @@ public class Value {
 	
 	public static int airUnit = 1;
 	public static int groundUnit= 0;
+	
+	public static int turkeyTower = 1;
 }
