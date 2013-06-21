@@ -115,7 +115,7 @@ public class Mob extends Rectangle{
 	}
 	
 	public void checkDeath(){
-		if(health ==0){
+		if(health <= 0){
 			deleteMob();
 		}
 	}

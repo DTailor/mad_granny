@@ -8,8 +8,8 @@ public class Store {
 	public static int buttonSize = 52;
 	public static int cellSpace = 2;
 	public static int iconSize = 20;
-	public static int[] buttonID = {Value.turkeyTower,1,2,3,4,5,6,7};
-	public static int[] buttonPrice = {5, 5, 0, 0, 0, 0, 0, 0, };
+	public static int[] buttonID = {0,Value.turkeyTower,Value.rabbitTower,Value.kabanTower,Value.hameakTower,5,5,6,7};
+	public static int[] buttonPrice = {0,5, 15, 25, 50, 0, 0, 0, 0, };
 	public static int heldID= -1;
 	public Rectangle[] button = new Rectangle[shopWidth];
 	

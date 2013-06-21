@@ -16,4 +16,7 @@ public class Value {
 	public static int groundUnit= 0;
 	
 	public static int turkeyTower = 1;
+	public static int rabbitTower = 2;
+	public static int kabanTower = 3;
+	public static int hameakTower = 4;
 }

@@ -57,6 +57,12 @@ public class Screen extends JPanel implements Runnable{
 		
 		tileset_shop[1] = new ImageIcon("res/tower_1.png").getImage();
 		tileset_air[1] = new ImageIcon("res/tower_1.png").getImage();
+		tileset_shop[2] = new ImageIcon("res/tower_2.png").getImage();
+		tileset_air[2] = new ImageIcon("res/tower_2.png").getImage();
+		tileset_shop[3] = new ImageIcon("res/tower_3.png").getImage();
+		tileset_air[3] = new ImageIcon("res/tower_3.png").getImage();
+		tileset_shop[4] = new ImageIcon("res/tower_4.png").getImage();
+		tileset_air[4] = new ImageIcon("res/tower_4.png").getImage();
 		tileset_granny[0] = new ImageIcon("res/zombo_granny_26px.png").getImage();
 		save.loadWorld(new File("save/mission1.grn"));
 
@@ -95,7 +101,7 @@ public class Screen extends JPanel implements Runnable{
 	
 	public static int fpsFrame = 0, fps = 1000000;
 	
-	public int spawnTimeout = 2000, spawnFrame=0;
+	public int spawnTimeout = 1200, spawnFrame=0;
 	public void mobSpawner(){
 		if(spawnFrame>=spawnTimeout){
 			for(int i=0;i< mobs.length;i++){
