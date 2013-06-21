@@ -36,6 +36,7 @@ public class Mob extends Rectangle{
 		inGame = false;
 		direction = right;
 		mobWalk = 0 ;
+		Screen.coins++;
 	}
 	public void loseHealth(){
 		Screen.health ++;

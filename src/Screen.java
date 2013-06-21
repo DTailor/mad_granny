@@ -11,7 +11,7 @@ public class Screen extends JPanel implements Runnable{
 	public static boolean isFirst = true;
 	public static boolean isDebug = true;
 	public static int myWidth, myHeight;
-	public static int coins = 20, health = 10;
+	public static int coins = 20, health = 33;
 	
 	public static Image[]  tileset_ground = new Image[20];
 	public static Image[]  tileset_air = new Image[20];
